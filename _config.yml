@@ -16,7 +16,7 @@ github_username: PureGero
 google_analytics: G-0395TMQMZ5
 
 # Build settings
-markdown: kramdown
+markdown: minima
 theme: minima
 plugins:
   - jekyll-feed
