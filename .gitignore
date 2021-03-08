@@ -1,0 +1,6 @@
+_site
+.sass-cache
+.jekyll-metadata
+.DS_Store # Because VSCode can be dumb about global ignores
+.DS_Store
+# ^ because VSCode is really really dumb

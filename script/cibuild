@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -e # this will halt the script on error
+
+bundle exec jekyll build
+
+# Stolen from http://jekyllrb.com/docs/continuous-integration/travis-ci/
