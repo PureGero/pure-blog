@@ -55,7 +55,7 @@ We will be testing with the following memory configurations:
  - 1GB
 
 The results are displayed in the following graph:
-![Durations for calls to REST apis with varying amounts of memory](../_assets/aws-lambda-rest-duration-vs-memory.svg)
+![Durations for calls to REST apis with varying amounts of memory](/assets/images/aws-lambda-rest-duration-vs-memory.svg)
 
 It is clear that increasing memory also decreases the duration of calls to REST endpoints. This may be due to an increase in network bandwidth proportional to memory. Future experiments should test the bandwidth speed allocation to a function vs the allocated memory.
 
