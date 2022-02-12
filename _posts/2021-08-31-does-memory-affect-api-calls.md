@@ -6,7 +6,7 @@ categories: aws lambda memory
 
 For those on a budget, decreasing the cost of each AWS Lambda execution is key. For novices, this is done by leaving functions at the minimum 128MB of memory. However, increasing the amount of memory a function has allocated to it also increases the amount of cpu allocated to it. This makes a function run faster, even if it's not being limited by memory. The increase in cpu has a linear relationship with the memory allocated, causing the execution to cost the same no matter the memory.
 
-Note: At a certain point, AWS will start allocating multiple cpu cores to your function. If it can't take advantage of the multiple cores, further increases in memory will be cost ineffective.
+Note: At a certain point, AWS will start allocating multiple cpu cores to your function. If your function can't take advantage of the multiple cores, further increases in memory will be cost ineffective.
 
 How about for third parties, where we don't have the ability to change their cpu allocation - will calls to them also speed up?
 
@@ -15,7 +15,7 @@ For this experiment, we'll be running a simple node.js function, using the node-
 You can install node-fetch with:  
 `npm install node-fetch`
 
-We will be using the following function to make the calls and give us the results:  
+We will be using the following function to make the calls and produce the results:  
 ```js
 const { performance } = require('perf_hooks');
 const fetch = require('node-fetch');
@@ -57,6 +57,6 @@ We will be testing with the following memory configurations:
 The results are displayed in the following graph:
 ![Durations for calls to REST apis with varying amounts of memory](/assets/images/aws-lambda-rest-duration-vs-memory.svg)
 
-It is clear that increasing memory also decreases the duration of calls to REST endpoints. This may be due to an increase in network bandwidth proportional to memory. Future experiments should test the bandwidth speed allocation to a function vs the allocated memory.
+Thus, it is clear that increasing the memory allocated to your function also decreases the time spent calling REST endpoints. This may be due to an increase in network bandwidth proportional to memory. Future experiments should test the bandwidth speed allocation to a function vs the allocated memory.
 
 In conclusion, not only does increasing an AWS Lambda function's memory decreases execution time by increasing cpu allocation, it also decreases the execution time by decreasing the duration of REST api calls. Thus, you do not need to stay at the 128MB memory minimum, but can increase your memory allocation while staying cost effective.
